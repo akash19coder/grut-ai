@@ -10,7 +10,6 @@ import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { pull } from "langchain/hub";
 import { PromptTemplate } from "@langchain/core/prompts";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
-import { PDFLoader } from "@langchain/community/document_loaders/fs/pdf";
 
 export async function POST(request) {
   const res = await request.json();
@@ -29,13 +28,17 @@ export async function POST(request) {
 
   const parser = new StringOutputParser();
 
-  // const pTagSelector = "p";
-  // const loader = new CheerioWebBaseLoader(
-  //   "https://docs.google.com/document/d/1y0ffpeJDEO1qH15k-vv7-_IjAvk-e17HxuWafuVIKT4/edit?usp=sharing"
-  // );
+  const pTagSelector = "p";
+  const loader = new CheerioWebBaseLoader(
+    "https://docs.google.com/document/d/1y0ffpeJDEO1qH15k-vv7-_IjAvk-e17HxuWafuVIKT4/edit?usp=sharing",
 
-  const nike10kPdfPath = "grut.pdf";
-  const loader = new PDFLoader(nike10kPdfPath);
+    {
+      selector: pTagSelector,
+    }
+  );
+
+  // const nike10kPdfPath = grut;
+  // const loader = new PDFLoader(nike10kPdfPath);
 
   const docs = await loader.load();
 
