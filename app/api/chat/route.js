@@ -34,7 +34,7 @@ export async function POST(request) {
   //   "https://docs.google.com/document/d/1y0ffpeJDEO1qH15k-vv7-_IjAvk-e17HxuWafuVIKT4/edit?usp=sharing"
   // );
 
-  const nike10kPdfPath = "/grut-ai/public/grut.pdf";
+  const nike10kPdfPath = "/public/grut.pdf";
   const loader = new PDFLoader(nike10kPdfPath);
 
   const docs = await loader.load();
