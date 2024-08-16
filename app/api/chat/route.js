@@ -30,7 +30,7 @@ export async function POST(request) {
 
   const pTagSelector = "p";
   const loader = new CheerioWebBaseLoader(
-    "https://docs.google.com/document/d/1y0ffpeJDEO1qH15k-vv7-_IjAvk-e17HxuWafuVIKT4/edit?usp=sharing",
+    "https://grutai.netlify.app/",
 
     {
       selector: pTagSelector,
@@ -47,7 +47,7 @@ export async function POST(request) {
     chunkOverlap: 200,
   });
   const allSplits = await textSplitter.splitDocuments(docs);
-
+  console.log(allSplits);
   const vectorStore = await MemoryVectorStore.fromDocuments(
     allSplits,
     embeddings

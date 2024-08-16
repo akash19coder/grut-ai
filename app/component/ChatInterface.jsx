@@ -5,11 +5,7 @@ import { useState } from "react";
 
 const ChatInterface = () => {
   return (
-    <div className="w-[30vw] h-[80vh] bg-slate-300 border rounded-md p-4">
-      <ChatHeader />
-      <ChatBody />
-      <ChatInput />
-    </div>
+    
   );
 };
 
